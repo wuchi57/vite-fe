@@ -1,5 +1,7 @@
 <script setup>
+import Page from 'components/Page.vue'
 import { useCounterStore } from 'store'
+
 const counter = useCounterStore()
 counter.count++
 // with autocompletion ✨
@@ -9,6 +11,14 @@ counter.increment()
 </script>
 
 <template>
-  <div>Current Count: {{ counter.count }}</div>
-  <router-link to="/">Go to /</router-link>
+  <Page>
+    <template #title>
+      Store 页面
+    </template>
+    <template #link>
+      <router-link to="/">Go to Home</router-link>
+      <div>Current Count: {{ counter.count }}</div>
+    </template>
+  </Page>
 </template>
+

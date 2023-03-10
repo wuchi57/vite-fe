@@ -5,6 +5,11 @@ export default [
         component: () => import('views/Home.vue'),
     },
     {
+        path: '/login',
+        name: 'login',
+        component: () => import('views/Login.vue'),
+    },
+    {
         path: '/about',
         name: 'about',
         component: () => import('views/About.vue'),
@@ -12,6 +17,6 @@ export default [
     {
         path: '/store',
         name: 'store',
-        component: () => import('views/StoreView.vue'),
+        component: () => import('views/Store.vue'),
     },
 ]

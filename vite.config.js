@@ -14,28 +14,29 @@ export default defineConfig({
     AutoImport({
       // Auto import functions from Vue, e.g. ref, reactive, toRef...
       // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
-      imports:['vue', 'vue-router'],
+      imports: ['vue', 'vue-router'],
       // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
       // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
       resolvers: [
         ElementPlusResolver(),
-        // Auto import icon components 自动导入图标组件
+        // Auto import icons components 自动导入图标组件
         IconsResolver({
           prefix: 'Icon',
         }),
       ],
-      dts: resolve(__dirname, 'src/auto-imports.d.ts'),
+      vueTemplate: true,
+      dts: resolve(__dirname, './auto-imports.d.ts'),
     }),
     Components({
       resolvers: [
         // Auto register Element Plus components 自动导入 Element Plus 组件
         ElementPlusResolver(),
-        // Auto register icon components 自动注册图标组件
+        // Auto register icons components 自动注册图标组件
         IconsResolver({
           enabledCollections: ['ep'],
         }),
       ],
-      dts: resolve(__dirname, 'src/components.d.ts'),
+      dts: resolve(__dirname, './components.d.ts'),
     }),
     Icons({
       autoInstall: true,
@@ -69,14 +70,14 @@ export default defineConfig({
     // 允许跨域
     cors: true,
     // 自定义代理规则
-    proxy: {},
-    // proxy: {
-    //   '/stage-api': {
-    //     target: 'http://0.0.0.0:82',
-    //     changeOrigin: true,
-    //     rewrite: (p) => p.replace(/^\/stage-api/,'')
-    //   }
-    // }
+    // proxy: {},
+    proxy: {
+      '/api': {
+        target: 'http://0.0.0.0:8000',
+        changeOrigin: true,
+        rewrite: (p) => p.replace(/^\/api/, '')
+      }
+    }
   },
   build: {
     // 设置最终构建的浏览器兼容目标

@@ -1,11 +1,17 @@
 <script setup>
+import Page from 'components/Page.vue'
 import IconView from 'components/ElementIcon.vue'
 </script>
 
 <template>
-  <div>
-    <IconView />
-    <h2>About 页面</h2>
-    <router-link to="/">Go to /</router-link>
-  </div>
+  <Page>
+    <template #title>
+      About 页面
+    </template>
+    <template #link>
+      <router-link to="/">Go to Home</router-link>
+      <IconView/>
+    </template>
+  </Page>
 </template>
+

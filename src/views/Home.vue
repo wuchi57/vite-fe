@@ -1,13 +1,17 @@
+<script setup>
+import Page from 'components/Page.vue'
+</script>
+
 <template>
-  <div>
-    <el-button type="primary">Element Button</el-button>
-    <h2>Home 页面</h2>
-    <el-row>
+  <Page>
+    <template #title>
+      主页
+    </template>
+    <template #link>
       <router-link to="/about">Go to About</router-link>
-    </el-row>
-    <el-row>
-      <router-link to="/store">Go to StoreDemo</router-link>
-    </el-row>
-  </div>
+      |
+      <router-link to="/store">Go to Store</router-link>
+    </template>
+  </Page>
 </template>
 
