@@ -1,5 +1,10 @@
 <script setup>
 import Page from 'components/Page.vue'
+import { User } from 'api'
+
+User.getUserInfo().then(res => {
+  console.log(res)
+})
 </script>
 
 <template>

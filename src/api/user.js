@@ -14,4 +14,17 @@ export default class User {
       data
     })
   }
+
+  /**
+   * 获取用户信息
+   * @param {String} username 用户名
+   * @param {String} password 密码
+   * @returns
+   */
+  static async getUserInfo() {
+    return request({
+      url: '/user',
+      method: 'get'
+    })
+  }
 }
